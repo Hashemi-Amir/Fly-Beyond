@@ -7,6 +7,7 @@ import useFlights from '../hooks/queryHooks/useFlights';
 import Flight from '../components/dashboard/Flight';
 import Btn from '../ui/Btn';
 import Loader from '../ui/Loader';
+import FlightsStatistics from '../components/dashboard/FlightsStatistics';
 
 function Dashboard() {
   const [flights, setFlights] = useState([]);
@@ -34,7 +35,9 @@ function Dashboard() {
   }, [isPaused]);
 
   return (
-    <div className="mx-auto max-w-sm  min-[800px]:max-w-[760px] min-[1200px]:max-w-[1150px]">
+    <div className="text- mx-auto max-w-sm max-[450px]:px-0 min-[300px]:px-2  min-[800px]:max-w-[760px] min-[1200px]:max-w-[1150px]">
+      <FlightsStatistics total={totalFlights} viewed={flights.length} />
+
       <ul className="grid grid-cols-1 gap-y-9 transition-all min-[800px]:grid-cols-2 min-[800px]:gap-x-9 min-[1200px]:grid-cols-3">
         {flights?.map((flight) => (
           <Flight key={flight.flightNum} flight={flight} />

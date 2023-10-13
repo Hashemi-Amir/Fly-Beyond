@@ -42,7 +42,6 @@ export default {
   },
 
   safelist: [
-    'bg-[rgba(17, 0, 255, 0.4)]',
     ...[...Array(100).keys()].flatMap((i) => [
       `h-[${i}px]`,
       `mx-[${i}px]`,
